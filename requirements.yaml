@@ -1,0 +1,4 @@
+collections:
+  - name: https://github.com/larsks/oddbit.kubernetes_nodes
+    type: git
+    version: main

@@ -1,0 +1,12 @@
+plugin: oddbit.kubernetes_nodes.kubernetes_nodes
+vars:
+  ansible_user: core
+  ansible_python_interpreter: /usr/libexec/platform-python
+
+groups:
+  controller: >-
+    "node-role.kubernetes.io/master" in node_labels
+  compute: >-
+    "node-role.kubernetes.io/worker" in node_labels
+  external_ingress: >-
+    node_labels["nerc.mghpcc.org/external-ingress"]|default("false") == "true"
